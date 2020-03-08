@@ -1,0 +1,8 @@
+variant: fcos
+version: 1.0.0
+passwd:
+    users:
+      - name: pfe
+        ssh_authorized_keys:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD1u8vk7x9Xpt5RSchNil7xEbiYOr7i/YaY1gU1aqKE9KvP93FWBmcG7DnTDgQdLJ0EIL247/8Okgy9aUO9MGWwT1sJ5YXsTtqpgUBsodDBJpkX3gPikAQGVQk5Kk8EWhxRLZpap/V9hBSSyOrmIdm6b6bJXSWa1SFf0gTQ/uWgiugE+Q4nf0WPWjbKmodcwFlkbwGmceMOX34uAQ/vyHYpVGpL1FjGBwCnInAXghi86ah1eS4/mBsFcIsFGndMZtzp7KmmBaTdiNHZeHp5oPzm9waQebGHm0ZV6RU1iR28iTK9uG31BLZb4nwXxYDFLrVAngtIFdHNl+gocl8nGxol mahagony4@gmail.com
+        groups: [ adm, wheel, sudo, systemd-journal ]
