@@ -6,4 +6,6 @@ if [ "_$1" = "_" ]; then
 fi
 
 NAME=$1
-virt-install --connect qemu:///system --name ${NAME} --ram 2048 --os-variant=fedora31 --import --graphic=none --disk pool=libvirt,size=10,backing_store=$(pwd)/fedora-coreos-qemu.qcow2 --qemu-commandline="-fw_cfg name=opt/com.coreos/config,file=$(pwd)/example.ign"
+POOL=/data/libvirt
+sed -e "s/#HOSTNAME#/${NAME}/" example.fcc | sudo podman run -i --rm quay.io/coreos/fcct:release --pretty --strict > example.ign
+virt-install --connect qemu:///system --name ${NAME} --ram 2048 --os-variant=fedora31 --import --graphic=none --disk pool=libvirt,size=10,backing_store=${POOL}/fedora-coreos-qemu.qcow2 --qemu-commandline="-fw_cfg name=opt/com.coreos/config,file=$(pwd)/example.ign"
